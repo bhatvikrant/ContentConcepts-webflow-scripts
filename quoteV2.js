@@ -205,9 +205,7 @@ function calculatePriceDateAndUpdateUI({
  * @param {Event} event
  */
 function handleEvent(event) {
-  const selectedValues = getSelectedValues();
-
-  calculatePriceDateAndUpdateUI(selectedValues);
+  calculatePriceDateAndUpdateUI(getSelectedValues());
 }
 
 // ------------------------------------- MAIN CALLs --------------------------------------------
