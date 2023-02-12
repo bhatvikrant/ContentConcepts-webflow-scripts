@@ -205,6 +205,7 @@ function calculatePriceDateAndUpdateUI({
  * @param {Event} event
  */
 function handleEvent(event) {
+  console.log(event, " clicked");
   const selectedValues = getSelectedValues();
 
   calculatePriceDateAndUpdateUI(selectedValues);
@@ -222,6 +223,5 @@ wordCountInputNode.addEventListener("input", handleEvent);
   inrNode,
   usdNode,
 ].forEach((node) => {
-  console.log(node, " clicked");
   node?.addEventListener("click", handleEvent);
 });
