@@ -164,22 +164,14 @@ function calculatePriceDateAndUpdateUI({
     const estimatedDateUSDNode = document.getElementById("estimated-date-usd");
 
     // Calculate
-    const calculatedTotalPrice = (
-      enteredWordCount * costMultipliersPerWord[serviceType][currency]
+    const calculatedTotalPriceINR = (
+      enteredWordCount * costMultipliersPerWord[serviceType]["inr"]
+    ).toLocaleString();
+    const calculatedTotalPriceUSD = (
+      enteredWordCount * costMultipliersPerWord[serviceType]["usd"]
     ).toLocaleString();
 
-    // const calculatedReturnDate = daysMultiplier.forEach(
-    //   ({ minWords, maxWords, days }) => {
-    //     if (enteredWordCount > minWords && enteredWordCount <= maxWords) {
-    //       const expectedDateObject = addDays(new Date(), days);
-
-    //       return formatDate(expectedDateObject);
-    //     }
-    //   }
-    // );
-
     let calculatedReturnDate = "";
-
     for (let index = 0; index < daysMultiplier.length; index++) {
       const { minWords, maxWords, days } = daysMultiplier[index];
       if (enteredWordCount > minWords && enteredWordCount <= maxWords) {
@@ -190,13 +182,14 @@ function calculatePriceDateAndUpdateUI({
     }
 
     // Update the DOM
-    if (currency === "inr") {
-      totalPriceINRNode.innerText = `₹ ${calculatedTotalPrice}`;
-      estimatedDateINRNode.innerText = calculatedReturnDate;
-    } else if (currency === "usd") {
-      totalPriceUSDNode.innerText = `$ ${calculatedTotalPrice}`;
-      estimatedDateUSDNode.innerText = calculatedReturnDate;
-    }
+
+    // INR
+    totalPriceINRNode.innerText = `₹ ${calculatedTotalPriceINR}`;
+    estimatedDateINRNode.innerText = calculatedReturnDate;
+
+    // USD
+    totalPriceUSDNode.innerText = `$ ${calculatedTotalPriceUSD}`;
+    estimatedDateUSDNode.innerText = calculatedReturnDate;
   }
 }
 
@@ -205,7 +198,6 @@ function calculatePriceDateAndUpdateUI({
  * @param {Event} event
  */
 function handleEvent(event) {
-  console.log(event, " clicked");
   const selectedValues = getSelectedValues();
 
   calculatePriceDateAndUpdateUI(selectedValues);
