@@ -205,7 +205,9 @@ function calculatePriceDateAndUpdateUI({
  * @param {Event} event
  */
 function handleEvent(event) {
-  calculatePriceDateAndUpdateUI(getSelectedValues());
+  const selectedValues = getSelectedValues();
+
+  calculatePriceDateAndUpdateUI(selectedValues);
 }
 
 // ------------------------------------- MAIN CALLs --------------------------------------------
@@ -220,5 +222,6 @@ wordCountInputNode.addEventListener("input", handleEvent);
   inrNode,
   usdNode,
 ].forEach((node) => {
+  console.log(node, " clicked");
   node?.addEventListener("click", handleEvent);
 });
