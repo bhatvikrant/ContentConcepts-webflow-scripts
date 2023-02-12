@@ -239,7 +239,6 @@ function handleEvent(event) {
 
 // ------------------------------------- MAIN CALLs --------------------------------------------
 
-// document.addEventListener("DOMContentLoaded", () => {
 preSelectCurrencyBasedOnTimezone();
 
 wordCountInputNode.addEventListener("input", handleEvent);
@@ -257,4 +256,3 @@ document
 ].forEach((node) => {
   node?.addEventListener("click", handleEvent);
 });
-// });
