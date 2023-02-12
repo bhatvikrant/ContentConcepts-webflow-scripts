@@ -210,7 +210,8 @@ function handleEvent(event) {
   calculatePriceDateAndUpdateUI(selectedValues);
 }
 
-// ------------------------------------- Event listeners --------------------------------------------
+// ------------------------------------- MAIN CALLs --------------------------------------------
+preSelectCurrencyBasedOnTimezone();
 
 wordCountInputNode.addEventListener("input", handleEvent);
 
