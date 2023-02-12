@@ -232,6 +232,7 @@ function calculatePriceDateAndUpdateUI({
  */
 function handleEvent(event) {
   const selectedValues = getSelectedValues();
+  console.log(selectedValues);
 
   calculatePriceDateAndUpdateUI(selectedValues);
 }
