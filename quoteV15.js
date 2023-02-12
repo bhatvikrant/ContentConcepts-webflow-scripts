@@ -66,11 +66,13 @@ function addDays(date, days) {
  * @returns {String}
  */
 function formatDate(inputDate) {
-  const date = inputDate.getDate();
-  const month = inputDate.getMonth() + 1; // Months are zero based
-  const year = inputDate.getFullYear();
+  // const date = inputDate.getDate();
+  // const month = inputDate.getMonth() + 1; // Months are zero based
+  // const year = inputDate.getFullYear();
 
-  return `${date}/${month}/${year}`;
+  // return `${date}/${month}/${year}`;
+
+  return dayjs(inputDate).format("dddd, MMMM D, YYYY");
 }
 
 /**
