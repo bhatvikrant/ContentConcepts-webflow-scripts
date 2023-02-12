@@ -73,6 +73,15 @@ function formatDate(inputDate) {
   return `${date}/${month}/${year}`;
 }
 
+/**
+ * 
+ * @param {String} string 
+ * @returns 
+ */
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 // ------------------------------------- Functions --------------------------------------------------
 
 function preSelectCurrencyBasedOnTimezone() {
@@ -183,13 +192,25 @@ function calculatePriceDateAndUpdateUI({
 
     // Update the DOM
 
+    // STEPPER Step 1
     // INR
     totalPriceINRNode.innerText = `₹ ${calculatedTotalPriceINR}`;
     estimatedDateINRNode.innerText = calculatedReturnDate;
-
+    
     // USD
     totalPriceUSDNode.innerText = `$ ${calculatedTotalPriceUSD}`;
     estimatedDateUSDNode.innerText = calculatedReturnDate;
+
+    // STEPPER Step 2
+    document.getElementById('STEP4-total-word-count')?.innerText = `Total word count - ${enteredWordCount}`;
+    document.getElementById('STEP4-selected-service')?.innerText = `Selected service - ${capitalizeFirstLetter(serviceType.split('-').join(' '))}`;
+    if(currency === 'inr') {
+      document.getElementById('STEP4-total-price')?.innerText = `₹ ${calculatedTotalPriceINR}`;
+    } else if(currency === 'usd') {
+      document.getElementById('STEP4-total-price')?.innerText = `$ ${calculatedTotalPriceUSD}`;
+    }
+
+    document.getElementById('STEP4-return-date')?.innerText = calculatedReturnDate;
   }
 }
 
