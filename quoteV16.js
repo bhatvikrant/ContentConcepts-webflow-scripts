@@ -183,6 +183,9 @@ function calculatePriceDateAndUpdateUI({
     );
     const step4_totalPriceNode = document.getElementById("STEP4-total-price");
     const step4_returnDateNode = document.getElementById("STEP4-return-date");
+    const step4_rzpPaymentBtn = document.querySelector(
+      "#rzp-submit-btn  script"
+    );
 
     // Calculate
     const calculatedTotalPriceINR = (
@@ -223,8 +226,15 @@ function calculatePriceDateAndUpdateUI({
     } else if (currency === "usd") {
       step4_totalPriceNode.innerText = `$ ${calculatedTotalPriceUSD}`;
     }
-
     step4_returnDateNode.innerText = calculatedReturnDate;
+
+    if (currency === "inr") {
+      // RZP payment btn
+      step4_rzpPaymentBtn.setAttribute(
+        "data-prefill.amount.amount",
+        calculatedTotalPriceINR
+      );
+    }
   }
 }
 
