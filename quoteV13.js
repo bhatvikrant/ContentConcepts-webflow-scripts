@@ -243,6 +243,10 @@ preSelectCurrencyBasedOnTimezone();
 
 wordCountInputNode.addEventListener("input", handleEvent);
 
+document
+  .getElementById("next-step-btn")
+  ?.addEventListener("click", handleEvent);
+
 [
   proofreadingNode,
   substantiveEditingNode,
