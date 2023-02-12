@@ -74,8 +74,8 @@ function formatDate(inputDate) {
 }
 
 /**
- * 
- * @param {String} string 
+ *
+ * @param {String} string
  * @returns {String}
  */
 function capitalizeFirstLetter(string) {
@@ -196,21 +196,21 @@ function calculatePriceDateAndUpdateUI({
     // INR
     totalPriceINRNode.innerText = `₹ ${calculatedTotalPriceINR}`;
     estimatedDateINRNode.innerText = calculatedReturnDate;
-    
+
     // USD
     totalPriceUSDNode.innerText = `$ ${calculatedTotalPriceUSD}`;
     estimatedDateUSDNode.innerText = calculatedReturnDate;
 
-    // STEPPER Step 4
-    document.getElementById('STEP4-total-word-count')?.innerText = `Total word count - ${enteredWordCount}`;
-    document.getElementById('STEP4-selected-service')?.innerText = `Selected service - ${capitalizeFirstLetter(serviceType.split('-').join(' '))}`;
-    if(currency === 'inr') {
-      document.getElementById('STEP4-total-price')?.innerText = `₹ ${calculatedTotalPriceINR}`;
-    } else if(currency === 'usd') {
-      document.getElementById('STEP4-total-price')?.innerText = `$ ${calculatedTotalPriceUSD}`;
-    }
+    // // STEPPER Step 4
+    // document.getElementById('STEP4-total-word-count')?.innerText = `Total word count - ${enteredWordCount}`;
+    // document.getElementById('STEP4-selected-service')?.innerText = `Selected service - ${capitalizeFirstLetter(serviceType.split('-').join(' '))}`;
+    // if(currency === 'inr') {
+    //   document.getElementById('STEP4-total-price')?.innerText = `₹ ${calculatedTotalPriceINR}`;
+    // } else if(currency === 'usd') {
+    //   document.getElementById('STEP4-total-price')?.innerText = `$ ${calculatedTotalPriceUSD}`;
+    // }
 
-    document.getElementById('STEP4-return-date')?.innerText = calculatedReturnDate;
+    // document.getElementById('STEP4-return-date')?.innerText = calculatedReturnDate;
   }
 }
 
