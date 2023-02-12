@@ -167,10 +167,20 @@ function calculatePriceDateAndUpdateUI({
 }) {
   if (enteredWordCount && serviceType && currency) {
     // DOM nodes
+    // STEP 1
     const totalPriceINRNode = document.getElementById("total-price-inr");
     const totalPriceUSDNode = document.getElementById("total-price-usd");
     const estimatedDateINRNode = document.getElementById("estimated-date-inr");
     const estimatedDateUSDNode = document.getElementById("estimated-date-usd");
+    // STEP 4
+    const step4_totalWordCountNode = document.getElementById(
+      "STEP4-total-word-count"
+    );
+    const step4_selectedServiceNode = document.getElementById(
+      "STEP4-selected-service"
+    );
+    const step4_totalPriceNode = document.getElementById("STEP4-total-price");
+    const step4_returnDateNode = document.getElementById("STEP4-return-date");
 
     // Calculate
     const calculatedTotalPriceINR = (
@@ -202,15 +212,17 @@ function calculatePriceDateAndUpdateUI({
     estimatedDateUSDNode.innerText = calculatedReturnDate;
 
     // STEPPER Step 4
-    document.getElementById("STEP4-total-word-count")?.innerText = `Total word count - ${enteredWordCount}`;
-    document.getElementById("STEP4-selected-service")?.innerText = `Selected service - ${capitalizeFirstLetter(serviceType.split('-').join(' '))}`;
-    if(currency === 'inr') {
-      document.getElementById("STEP4-total-price")?.innerText = `₹ ${calculatedTotalPriceINR}`;
-    } else if(currency === 'usd') {
-      document.getElementById("STEP4-total-price")?.innerText = `$ ${calculatedTotalPriceUSD}`;
+    step4_totalWordCountNode.innerText = `Total word count - ${enteredWordCount}`;
+    step4_selectedServiceNode.innerText = `Selected service - ${capitalizeFirstLetter(
+      serviceType.split("-").join(" ")
+    )}`;
+    if (currency === "inr") {
+      step4_totalPriceNode.innerText = `₹ ${calculatedTotalPriceINR}`;
+    } else if (currency === "usd") {
+      step4_totalPriceNode.innerText = `$ ${calculatedTotalPriceUSD}`;
     }
 
-    document.getElementById("STEP4-return-date")?.innerText = calculatedReturnDate;
+    step4_returnDateNode.innerText = calculatedReturnDate;
   }
 }
 
