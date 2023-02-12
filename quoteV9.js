@@ -225,16 +225,19 @@ function handleEvent(event) {
 }
 
 // ------------------------------------- MAIN CALLs --------------------------------------------
-preSelectCurrencyBasedOnTimezone();
 
-wordCountInputNode.addEventListener("input", handleEvent);
+document.addEventListener("DOMContentLoaded", () => {
+  preSelectCurrencyBasedOnTimezone();
 
-[
-  proofreadingNode,
-  substantiveEditingNode,
-  plagiarismEditingNode,
-  inrNode,
-  usdNode,
-].forEach((node) => {
-  node?.addEventListener("click", handleEvent);
+  wordCountInputNode.addEventListener("input", handleEvent);
+
+  [
+    proofreadingNode,
+    substantiveEditingNode,
+    plagiarismEditingNode,
+    inrNode,
+    usdNode,
+  ].forEach((node) => {
+    node?.addEventListener("click", handleEvent);
+  });
 });
