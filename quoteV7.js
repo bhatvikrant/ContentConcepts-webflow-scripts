@@ -76,7 +76,7 @@ function formatDate(inputDate) {
 /**
  * 
  * @param {String} string 
- * @returns 
+ * @returns {String}
  */
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -201,7 +201,7 @@ function calculatePriceDateAndUpdateUI({
     totalPriceUSDNode.innerText = `$ ${calculatedTotalPriceUSD}`;
     estimatedDateUSDNode.innerText = calculatedReturnDate;
 
-    // STEPPER Step 2
+    // STEPPER Step 4
     document.getElementById('STEP4-total-word-count')?.innerText = `Total word count - ${enteredWordCount}`;
     document.getElementById('STEP4-selected-service')?.innerText = `Selected service - ${capitalizeFirstLetter(serviceType.split('-').join(' '))}`;
     if(currency === 'inr') {
