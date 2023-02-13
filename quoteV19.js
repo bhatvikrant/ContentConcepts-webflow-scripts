@@ -184,7 +184,7 @@ function calculatePriceDateAndUpdateUI({
     const step4_totalPriceNode = document.getElementById("STEP4-total-price");
     const step4_returnDateNode = document.getElementById("STEP4-return-date");
     const step4_rzpPaymentBtn = document.querySelector(
-      "#rzp-submit-btn  script"
+      "#rzp-btn-container  script"
     );
 
     // Calculate
