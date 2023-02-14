@@ -232,9 +232,9 @@ function calculatePriceDateAndUpdateUI({
       // RZP payment btn
       step4_rzpPaymentBtn.setAttribute(
         "data-prefill.amount.amount",
-        (
-          enteredWordCount * costMultipliersPerWord[serviceType]["inr"]
-        ).toString() // Note: this is without .toLocaleString() since we do not need the commas
+        (enteredWordCount * costMultipliersPerWord[serviceType]["inr"]).toFixed(
+          2
+        )
       );
     }
   }
